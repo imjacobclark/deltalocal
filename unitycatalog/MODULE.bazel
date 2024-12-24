@@ -1,0 +1,19 @@
+module(
+    name = "unity_catalog",
+    version = "0.2.1",
+)
+
+bazel_dep(name = "rules_pkg", version = "0.9.1")
+bazel_dep(name = "rules_oci", version = "1.4.0")
+
+non_module_dependencies = use_extension("//:non_module_deps.bzl", "non_module_dependencies")
+use_repo(non_module_dependencies, "unitycatalog")
+
+oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
+oci.pull(
+    name = "ubuntu",
+    tag = "22.04",
+    image = "ubuntu",
+    platforms = ["linux/amd64"],
+)
+use_repo(oci, "ubuntu")

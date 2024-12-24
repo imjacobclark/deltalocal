@@ -1,0 +1,26 @@
+# Bazel workspace files
+/bazel-*
+**/bazel-*
+# Build outputs
+**/dist/
+**/build/
+**/bin/
+# Bazel symlinks
+bazel-out
+bazel-bin
+bazel-testlogs
+bazel-workspace
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+# Operating System
+.DS_Store
+Thumbs.db
+# Bazel related caches
+.cache/
+.bazelrc.user
+
+/*.tar
+**/*.tar

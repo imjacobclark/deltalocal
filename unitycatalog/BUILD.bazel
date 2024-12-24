@@ -1,0 +1,38 @@
+load("@rules_pkg//:pkg.bzl", "pkg_tar")
+
+pkg_tar(
+    name = "uc_files",
+    srcs = ["@unitycatalog//:all_files"],
+    package_dir = "/app",
+    strip_prefix = "unitycatalog",
+)
+
+pkg_tar(
+    name = "setup_files",
+    srcs = ["provisioner/setup.sh"],
+    package_dir = "/usr/local/bin",
+    mode = "0755",
+)
+
+load("@rules_oci//oci:defs.bzl", "oci_image", "oci_tarball")
+
+oci_image(
+    name = "unity_catalog_image",
+    base = "@ubuntu",
+    workdir = "/app",
+    entrypoint = ["/usr/local/bin/setup.sh"],
+    tars = [
+        ":uc_files",
+        ":setup_files",
+    ],
+    env = {
+        "JAVA_HOME": "/usr/lib/jvm/java-17-openjdk-amd64",
+        "DEBIAN_FRONTEND": "noninteractive",
+    },
+)
+
+oci_tarball(
+    name = "unity_catalog_image_tar",
+    image = ":unity_catalog_image",
+    repo_tags = ["unitycatalog:latest"],
+)
