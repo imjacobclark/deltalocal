@@ -141,32 +141,6 @@
   },
   "selectedYankedVersions": {},
   "moduleExtensions": {
-    "//:non_module_deps.bzl%non_module_dependencies": {
-      "general": {
-        "bzlTransitiveDigest": "oVJ2NM9gyRs6cSXeBtSj1ZKBkfkHJ89GGUXIpng+RSI=",
-        "usagesDigest": "aHi9Aa05E0m8732fGOvq0kgrUZYAnNiZ5yAgxpZP1IY=",
-        "recordedFileInputs": {},
-        "recordedDirentsInputs": {},
-        "envVariables": {},
-        "generatedRepoSpecs": {
-          "unitycatalog": {
-            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:git.bzl%git_repository",
-            "attributes": {
-              "remote": "https://github.com/unitycatalog/unitycatalog.git",
-              "tag": "v0.2.1",
-              "build_file_content": "\nfilegroup(\n    name = \"all_files\",\n    srcs = glob([\"**/*\"]),\n    visibility = [\"//visibility:public\"],\n)\n"
-            }
-          }
-        },
-        "recordedRepoMappingEntries": [
-          [
-            "",
-            "bazel_tools",
-            "bazel_tools"
-          ]
-        ]
-      }
-    },
     "@@aspect_bazel_lib+//lib:extensions.bzl%ext": {
       "general": {
         "bzlTransitiveDigest": "eFdRHtSg5l1vg1XRv8KXw6xGCSUsdIGDt2ejrQTAZBk=",

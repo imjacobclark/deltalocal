@@ -6,7 +6,7 @@ module(
 bazel_dep(name = "rules_pkg", version = "0.9.1")
 bazel_dep(name = "rules_oci", version = "1.4.0")
 
-non_module_dependencies = use_extension("//:non_module_deps.bzl", "non_module_dependencies")
+non_module_dependencies = use_extension("//:non_module_deps.bazel", "non_module_dependencies")
 use_repo(non_module_dependencies, "unitycatalog")
 
 oci = use_extension("@rules_oci//oci:extensions.bzl", "oci")
